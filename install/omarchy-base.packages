@@ -34,6 +34,7 @@ fd
 ffmpegthumbnailer
 fontconfig
 fzf
+git
 github-cli
 gnome-calculator
 gnome-keyring
@@ -100,6 +101,7 @@ python-poetry-core
 python-terminaltexteffects
 qt5-wayland
 ripgrep
+rsync
 satty
 sddm
 signal-desktop

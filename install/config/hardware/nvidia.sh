@@ -10,31 +10,26 @@
 
 # --- GPU Detection ---
 if [ -n "$(lspci | grep -i 'nvidia')" ]; then
-  # --- Driver Selection ---
-  # Turing (16xx, 20xx), Ampere (30xx), Ada (40xx), and newer recommend the open-source kernel modules
-  if echo "$(lspci | grep -i 'nvidia')" | grep -q -E "RTX [2-9][0-9]|GTX 16"; then
-    NVIDIA_DRIVER_PACKAGE="nvidia-open-dkms"
-  else
-    NVIDIA_DRIVER_PACKAGE="nvidia-dkms"
-  fi
 
   # Check which kernel is installed and set appropriate headers package
-  KERNEL_HEADERS="linux-headers" # Default
-  if pacman -Q linux-zen &>/dev/null; then
-    KERNEL_HEADERS="linux-zen-headers"
-  elif pacman -Q linux-lts &>/dev/null; then
-    KERNEL_HEADERS="linux-lts-headers"
-  elif pacman -Q linux-hardened &>/dev/null; then
-    KERNEL_HEADERS="linux-hardened-headers"
-  fi
+  KERNEL_HEADERS="linux-cachyos-headers" # Default
+    # Select the CachyOS NVIDIA kernel package when applicable
+    KERNEL_PACKAGE="linux-cachyos"
+    if echo "$(lspci | grep -i 'nvidia')" | grep -q -E 'TU[0-9]+|GA[0-9]+|AD[0-9]+|GB[0-9]+'; then
+      KERNEL_PACKAGE="linux-cachyos-nvidia-open"
+    else
+      KERNEL_PACKAGE="linux-cachyos-nvidia"
+    fi
+    # DKMS NVIDIA driver packages are not used with CachyOS kernels; ensure the variable is empty
+    NVIDIA_DRIVER_PACKAGE=""
 
   # force package database refresh
   sudo pacman -Syu --noconfirm
 
   # Install packages
   PACKAGES_TO_INSTALL=(
+      "${KERNEL_PACKAGE}"
     "${KERNEL_HEADERS}"
-    "${NVIDIA_DRIVER_PACKAGE}"
     "nvidia-utils"
     "lib32-nvidia-utils"
     "egl-wayland"
