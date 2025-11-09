@@ -85,6 +85,7 @@ nss-mdns
 nvim
 obs-studio
 obsidian
+oh-my-zsh-git
 omarchy-chromium
 omarchy-nvim
 omarchy-walker
@@ -138,4 +139,8 @@ xmlstarlet
 xournalpp
 yaru-icon-theme
 yay
+zen-browser-bin
 zoxide
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting

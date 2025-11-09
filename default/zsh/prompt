@@ -1,0 +1,7 @@
+# Prompt for zsh
+# Use modern prompt with icon and path in window title
+autoload -Uz colors && colors
+PROMPT=$' '
+# Set terminal/tab title to current working directory
+precmd() { print -Pn "\e]0;%~\a" }
+

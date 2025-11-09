@@ -1,0 +1,22 @@
+# Source the zsh equivalents of the default shell configuration
+source ~/.local/share/omarchy/default/zsh/shell
+source ~/.local/share/omarchy/default/zsh/aliases
+source ~/.local/share/omarchy/default/zsh/functions
+source ~/.local/share/omarchy/default/zsh/prompt
+source ~/.local/share/omarchy/default/zsh/init
+source ~/.local/share/omarchy/default/zsh/envs
+
+# Load Omarchy oh-my-zsh helper (wraps user ~/.zshconf and OMZ init)
+if [[ -f ~/.local/share/omarchy/default/zsh/oh-my-zsh ]]; then
+  source ~/.local/share/omarchy/default/zsh/oh-my-zsh
+fi
+# Load inputrc for readline-compatible programs
+if [[ $- == *i* ]]; then
+  if (( $+commands[bindkey] )); then
+    # zsh uses bindkey; attempt to load readline-style inputrc into zsh where possible
+    if [[ -f ~/.local/share/omarchy/default/zsh/inputrc ]]; then
+      # For zsh, mimic some inputrc settings
+      bindkey -e
+    fi
+  fi
+fi
