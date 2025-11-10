@@ -22,6 +22,7 @@ if gum confirm "Are you sure you want to reinstall and lose all config changes?"
   echo "Resetting all Omarchy configs"
   cp -R ~/.local/share/omarchy/config/* ~/.config/
   cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
+  cp ~/.local/share/omarchy/default/zshrc ~/.zshrc
   echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' | tee ~/.bash_profile >/dev/null
 
   $(bash $OMARCHY_PATH/install/config/theme.sh)
