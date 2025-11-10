@@ -1,12 +1,9 @@
 # Omarchy core package list installed via install/packaging/base.sh
 # This file is also used by the ISO builder when determining needs
 
-1password-beta
-1password-cli
 aether
-alacritty
 ghostty
-asdcontrol
+#asdcontrol
 avahi
 bash-completion
 bat
@@ -58,7 +55,7 @@ inetutils
 inxi
 iwd
 jq
-kdenlive
+#kdenlive
 kvantum-qt5
 lazydocker
 lazygit
@@ -84,7 +81,7 @@ noto-fonts-extra
 nss-mdns
 nvim
 obs-studio
-obsidian
+#obsidian
 oh-my-zsh-git
 omarchy-chromium
 omarchy-nvim
@@ -105,9 +102,9 @@ ripgrep
 rsync
 satty
 sddm
-signal-desktop
+#signal-desktop
 slurp
-spotify
+#spotify
 starship
 sushi
 swaybg
@@ -118,7 +115,7 @@ tree-sitter-cli
 ttf-cascadia-mono-nerd
 ttf-ia-writer
 ttf-jetbrains-mono-nerd
-typora
+#typora
 tzupdate
 ufw
 ufw-docker
@@ -136,7 +133,7 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-terminal-exec
 xmlstarlet
-xournalpp
+#xournalpp
 yaru-icon-theme
 yay
 zen-browser-bin
